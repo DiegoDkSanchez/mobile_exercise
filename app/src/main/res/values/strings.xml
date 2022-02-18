@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MobileExercise</string>
+
+    <!--Login Fragment-->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="login_page">Login Page</string>
+    <string name="dashboard">Dashboard Page</string>
+    <string name="welcome">Welcome</string>
+    <string name="transaction">Transactions</string>
+    <string name="balance">Balance</string>
+
+</resources>

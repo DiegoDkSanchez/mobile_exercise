@@ -7,6 +7,7 @@ import com.mobileexercise.data.WireAPI
 import com.mobileexercise.ui.account.AccountViewModel
 import com.mobileexercise.ui.dashboard.DashboardViewModel
 import com.mobileexercise.ui.login.LoginViewModel
+import com.mobileexercise.ui.transaccion.TransactionViewModel
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -28,6 +29,7 @@ val appModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { DashboardViewModel(get()) }
     viewModel { AccountViewModel(get()) }
+    viewModel { TransactionViewModel() }
 }
 
 // We can add interceptor to use token in this client

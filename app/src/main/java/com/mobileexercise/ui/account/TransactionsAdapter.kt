@@ -2,6 +2,8 @@ package com.mobileexercise.ui.account
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.mobileexercise.databinding.TransactionItemBinding
 import com.mobileexercise.models.Transaction
@@ -24,6 +26,17 @@ class TransactionsAdapter(private val list: List<Transaction>) :
             val transaction = list[position]
             binding.tvTitle.text = transaction.title
             binding.tvBalance.text = transaction.balance.toDollarFormat()
+            binding.tvTitle.transitionName = transaction.title
+            binding.tvBalance.transitionName = "${transaction.balance}"
+            binding.root.setOnClickListener {
+                val extras = FragmentNavigatorExtras(
+                    binding.tvTitle to transaction.title,
+                    binding.tvBalance to "${transaction.balance}"
+                )
+                val action =
+                    AccountFragmentDirections.actionAccountFragmentToTransactionFragment(transaction)
+                binding.root.findNavController().navigate(action, extras)
+            }
         }
     }
 

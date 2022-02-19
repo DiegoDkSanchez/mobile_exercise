@@ -3,6 +3,7 @@ package com.mobileexercise.ui.dashboard
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.mobileexercise.databinding.AccountItemBinding
 import com.mobileexercise.models.Account
@@ -21,10 +22,16 @@ class AccountsAdapter(private val list: List<Account>) :
             val account = list[position]
             binding.tvName.text = account.name
             binding.tvBalance.text = account.balance.toDollarFormat()
+            binding.tvName.transitionName = account.name
+            binding.tvBalance.transitionName = "${account.balance}"
             binding.root.setOnClickListener {
+                val extras = FragmentNavigatorExtras(
+                    binding.tvName to account.name,
+                    binding.tvBalance to "${account.balance}"
+                )
                 val action =
                     DashboardFragmentDirections.actionDashboardFragmentToAccountFragment(account)
-                binding.root.findNavController().navigate(action)
+                binding.root.findNavController().navigate(action, extras)
             }
         }
     }

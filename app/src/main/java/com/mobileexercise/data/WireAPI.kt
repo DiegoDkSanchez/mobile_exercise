@@ -7,7 +7,8 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
-const val BASE_URL = "http://localhost:5555"
+// const val BASE_URL = "http://localhost:5555"
+const val BASE_URL = "http://192.168.1.58:5555"
 
 interface WireAPI {
     @FormUrlEncoded
